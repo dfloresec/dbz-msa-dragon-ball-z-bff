@@ -17,16 +17,17 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequiredArgsConstructor
 public class DragonBallZController {
-	
+
 	private static final String TOKEN_PREFIX = "Bearer ";
 
 	private final SecurityService securityService;
-	
+
 	private final FavoritesService favoritesService;
 
 	@GetMapping(value = "/v1/dragonballz/favorites/{user}")
 	@ResponseStatus(HttpStatus.OK)
-	private List<GaleryDto> getFavorities(@RequestHeader("Authorization") String bearerToken, @PathVariable(value = "user") String user) {
+	private List<GaleryDto> getFavorities(@RequestHeader("Authorization") String bearerToken,
+			@PathVariable(value = "user") String user) {
 		securityService.validateTolen(bearerToken.replace(TOKEN_PREFIX, ""));
 		return favoritesService.getFavorites(user);
 	}
