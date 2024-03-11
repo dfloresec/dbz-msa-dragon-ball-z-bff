@@ -16,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-public class DragonBallZController {
+public class SegFavoritesListController {
 
 	private static final String TOKEN_PREFIX = "Bearer ";
 

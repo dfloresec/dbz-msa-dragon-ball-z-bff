@@ -10,5 +10,5 @@ public interface FavoritesClient {
 
 	@RequestLine("GET /favorites/{user}")
 	public List<GaleryDto> getFavorites(@Param("user") String user);
-
+	
 }
