@@ -18,6 +18,12 @@ public class FavoritesRepository {
 				.target(FavoritesClient.class, "http://localhost:8082");
 		return client.getFavorites(user);
 	}
+	
+	public List<GaleryDto> allWithFavorites(String user) {
+		FavoritesClient client = Feign.builder().encoder(new JacksonEncoder()).decoder(new JacksonDecoder())
+				.target(FavoritesClient.class, "http://localhost:8082");
+		return client.allWithFavorites(user);
+	}
 
 	public void changeStatus(RequestDto req) {
 		FavoritesUpdateClient client = Feign.builder().encoder(new JacksonEncoder()).decoder(new JacksonDecoder())

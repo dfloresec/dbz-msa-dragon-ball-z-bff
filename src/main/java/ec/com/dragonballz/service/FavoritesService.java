@@ -19,6 +19,10 @@ public class FavoritesService {
 		return favoritesRepository.getFavorites(user);
 	}
 	
+	public List<GaleryDto> allWithFavorites(String user) {
+		return favoritesRepository.allWithFavorites(user);
+	}
+	
 	public void changeStatus(RequestDto req) {
 		favoritesRepository.changeStatus(req);
 	}

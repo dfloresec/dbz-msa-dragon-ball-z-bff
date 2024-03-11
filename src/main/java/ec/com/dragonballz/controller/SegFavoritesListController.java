@@ -31,5 +31,13 @@ public class SegFavoritesListController {
 		securityService.validateTolen(bearerToken.replace(TOKEN_PREFIX, ""));
 		return favoritesService.getFavorites(user);
 	}
+	
+	@GetMapping(value = "/v1/dragonballz/allWithFavorites/{user}")
+	@ResponseStatus(HttpStatus.OK)
+	private List<GaleryDto> allWithFavorites(@RequestHeader("Authorization") String bearerToken,
+			@PathVariable(value = "user") String user) {
+		securityService.validateTolen(bearerToken.replace(TOKEN_PREFIX, ""));
+		return favoritesService.allWithFavorites(user);
+	}
 
 }
